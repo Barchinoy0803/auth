@@ -39,8 +39,8 @@ export class UserController {
     @UseInterceptors(FileInterceptor("file"))
     async uploadImage(
         @UploadedFile() file: Express.Multer.File
-    ) { 
+    ) {
         const imageURL = await this.cloudinaryService.uploadImage(file)
-        return {url: imageURL.secure_url}
+        return { url: imageURL.secure_url }
     }
 }
